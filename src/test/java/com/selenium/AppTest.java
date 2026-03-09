@@ -12,9 +12,11 @@ public class AppTest
     /**
      * Rigorous Test :-)
      */
+    App app = new App();
     @Test
-    public void shouldAnswerWithTrue()
+    public void getTitle()
     {
-        assertTrue( true );
+        String title = app.getTitle();
+        assertTrue(title.equals("Google"));
     }
 }
