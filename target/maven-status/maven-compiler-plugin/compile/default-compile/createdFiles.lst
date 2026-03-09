@@ -1,2 +1,5 @@
+com\selenium\singleton.class
+com\selenium\DatabaseManager.class
 com\selenium\App.class
 com\selenium\getDriver.class
+com\selenium\singleton$Holder.class

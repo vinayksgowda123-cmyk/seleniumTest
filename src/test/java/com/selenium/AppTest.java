@@ -12,6 +12,9 @@ public class AppTest
     /**
      * Rigorous Test :-)
      */
+    /* 
+    */
+   
     App app = new App();
     @Test
     public void getTitle()

@@ -1,15 +1,12 @@
 package com.selenium;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
-/**
- * Hello world!
- *
- */
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.chrome.ChromeDriver;
+
 public class App 
 {
     
@@ -31,6 +28,21 @@ public class App
         return title;
     }
 
+    public String searchfacebook()
+    {
+        WebDriver driver=this.driver.chromeWebDriver();
+        driver.get("https://www.google.com");
+        WebElement searchBox = driver.findElement(By.name("APjFqb"));
+        searchBox.sendKeys("Facebook login");
+        searchBox.submit();
+        waitFor(driver,15000);
+        String currenturl= driver.getCurrentUrl().toString();
+        System.out.println("current url is: " + currenturl);
+        driver.quit();
+        return currenturl;
+
+    }
+
     public String search()
     {
             WebDriver driver = this.driver.chromeWebDriver();
@@ -48,25 +60,29 @@ public class App
     }
     public static void main( String[] args )
     {
-    //     WebDriverManager.chromedriver().setup();
-    //     WebDriver driver = new ChromeDriver();
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
 
-    //     driver.get("https://www.google.com");
+        driver.get("https://www.google.com");
 
-    //    System.out.println("page title is: " + driver.getTitle());
+     //  System.out.println("page title is: " + driver.getTitle());
 
-    //     App app = new App();
-    //     app.search();
+        App app = new App();
+        //app.search();
+        app.searchfacebook();
 
-    //     driver.quit();
+        driver.quit();
 
+        
     singleton singleton1 = singleton.getInstance();
     singleton singleton2 = singleton.getInstance();
 
-    if(singleton1 == singleton2) {
-        System.out.println("Both instances are the same.");
-    } else {
-        System.out.println("Instances are different.");
-    }
+    
+    // if(singleton1 == singleton2) {
+    //     System.out.println("Both instances are the same.");
+    // } else {
+    //     System.out.println("Instances are different.");
+    // }
+    
 }
 }
