@@ -41,16 +41,16 @@ public class AppTest
 
     @ParameterizedTest
     @CsvSource({
-        "vinayksgowda@gmail.com, vinay@12345"
-        // "john.doe@gmail.com, john@12345",
-        // "jane.smith@gmail.com, jane@12345",
-        // "bob.wilson@gmail.com, bob@12345",
-        // "alice.johnson@gmail.com, alice@12345",
-        // "eve.brown@gmail.com, eve@12345",
-        // "charlie.davis@gmail.com, charlie@12345",
-        // "david.miller@gmail.com, david@12345",
-        // "alice.brown@gmail.com, alice@12345",
-        // "bob.smith@gmail.com, bob@12345"
+        "vinayksgowda@gmail.com, vinay@12345",
+        "john.doe@gmail.com, john@12345",
+        "jane.smith@gmail.com, jane@12345",
+        "bob.wilson@gmail.com, bob@12345",
+        "alice.johnson@gmail.com, alice@12345",
+        "eve.brown@gmail.com, eve@12345",
+        "charlie.davis@gmail.com, charlie@12345",
+        "david.miller@gmail.com, david@12345",
+        "alice.brown@gmail.com, alice@12345",
+        "bob.smith@gmail.com, bob@12345"
         
     })
      public void Login(String email, String password)
@@ -70,7 +70,7 @@ public class AppTest
         String alertText1 = alert1.getText();
         alert1.accept();
         assertEquals("Account created successfully! Please login.", alertText1);
-        app.waitFor(webdriver, 5000);
+        app.waitFor(webdriver, 10000);
 
 
 
@@ -80,7 +80,7 @@ public class AppTest
         loginPassword.sendKeys(password);
         WebElement loginButton = webdriver.findElement(By.id("submitButton"));
         loginButton.click();
-        app.waitFor(webdriver, 5000);
+        app.waitFor(webdriver, 10000);
        
         Alert alert = webdriver.switchTo().alert();
         String alertText = alert.getText();
@@ -119,7 +119,7 @@ public class AppTest
         String alertText5 = alert5.getText();
         alert5.accept();
         assertEquals("your amount is $70", alertText5);
-        
+
     }
         
 
